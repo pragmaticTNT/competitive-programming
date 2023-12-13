@@ -1,0 +1,29 @@
+Facebook hacker-cup Round 1: Divide and Conquer
+https://www.facebook.com/codingcompetitions/hacker-cup/2023/round-1?source=codeforces
+
+[Problem C] Back in Black
+
+Step 1: Figure out the set of button pushes needed to get the initial sequence
+
+ - Do this first for the first bit (just check the parity)
+ - Then for the 2^k.. 2^(k+1) bits
+   xor with the bit pattern created by the flips done in solving the previous 2^k bits
+   and the button pushes are bits left over... the button pushes necessarily flip exactly the one bit in the it pattern
+   and now you have the bit pattern for the next step
+
+Step 2a: Xor the brothers pushes with your pushes, count ones
+
+Step 2b: Do the same, but at every step... (just xoring the one bit he is changing and updating the count of ones as appropriate) 
+
+[Problem D] Today is Gonna be a Great Day
+
+Heap storing max and min of values in each interval. 
+Queries read off the root and then modify all ancestors of the leaves corresponding to the 
+endpoints of the interval. In particular, the parity of all values in the interval (modulo 1_000_000_0007)
+gets flipped.  
+
+[Problem E] Bohemian Rap-sody
+
+Binary tree of tries (merge sort style), each trie of the words in that interval.
+Tries stored in a way that we can easily count the number of words on the n^th level
+(store nodes for each level in their own vec)
