@@ -3,6 +3,8 @@ use std::{error::Error, result::Result as StdResult};
 
 pub type Result<T> = StdResult<T, Box<dyn Error>>;
 
+use std::collections::HashSet;
+
 fn parse_pair(lines: &mut dyn Iterator<Item=String>) -> [usize; 2] {
     lines.next().ok_or("nm")
         .unwrap()
@@ -23,8 +25,22 @@ fn main() {
     }
 }
 
-fn solve(lines: &mut dyn Iterator<Item=String>) -> Result<usize> {
+fn solve(lines: &mut dyn Iterator<Item=String>) -> Result<char> {
+    let line1 = lines.next().unwrap();
+    let line2 = lines.next().unwrap();
+    let line3 = lines.next().unwrap();
     
-
-    todo!()
+    for line in [&line1, &line2, &line3] {
+        let mut visit = HashSet::from(['A', 'B', 'C']);
+        for c in line.chars(){
+            if c != '?' {
+                visit.remove(&c);
+            }
+        }
+        if visit.len() == 1 {
+            let remainder = visit.iter().next().unwrap();
+            return Ok(*remainder)
+        }
+    }
+    unreachable!()
 }

@@ -3,14 +3,12 @@ use std::{error::Error, result::Result as StdResult};
 
 pub type Result<T> = StdResult<T, Box<dyn Error>>;
 
-fn parse_pair(lines: &mut dyn Iterator<Item=String>) -> [usize; 2] {
+fn parse_vector(lines: &mut dyn Iterator<Item=String>) -> Vec<usize> {
     lines.next().ok_or("nm")
         .unwrap()
         .split_whitespace()
         .map(|s| s.parse().unwrap())
-        .collect::<Vec<_>>()
-        .try_into()
-        .unwrap()
+        .collect()
 }
 
 fn main() {
@@ -24,7 +22,16 @@ fn main() {
 }
 
 fn solve(lines: &mut dyn Iterator<Item=String>) -> Result<usize> {
+    let n: usize = lines.next().unwrap().parse().unwrap();
+    let sign: String = lines.next().unwrap();
+    let child = parse_vector(lines);
+    let sign: Vec<bool> = sign.chars().map(|c| 
+        if c == '0'{
+            false
+        } else {
+            true
+        }).collect();
     
-
+    
     todo!()
 }

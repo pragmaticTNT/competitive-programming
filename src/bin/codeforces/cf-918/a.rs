@@ -3,7 +3,7 @@ use std::{error::Error, result::Result as StdResult};
 
 pub type Result<T> = StdResult<T, Box<dyn Error>>;
 
-fn parse_pair(lines: &mut dyn Iterator<Item=String>) -> [usize; 2] {
+fn parse_trips(lines: &mut dyn Iterator<Item=String>) -> [usize; 3] {
     lines.next().ok_or("nm")
         .unwrap()
         .split_whitespace()
@@ -24,7 +24,12 @@ fn main() {
 }
 
 fn solve(lines: &mut dyn Iterator<Item=String>) -> Result<usize> {
-    
-
-    todo!()
+    let words = parse_trips(lines);
+    if words[0] == words[1] {
+        Ok(words[2])
+    } else if words[1] == words[2] {
+        Ok(words[0])
+    } else {
+        Ok(words[1])
+    }
 }
