@@ -1,1 +1,0 @@
-Map<std::iter::Take<&mut std::io::Lines<StdinLock<'_>>>, fn(std::result::Result<_, Box<dyn std::error::Error>>) -> _ {std::result::Result::<_, Box<dyn std::error::Error>>::unwrap}>

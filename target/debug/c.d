@@ -1,1 +1,1 @@
-/home/mogu/Documents/competition/target/debug/c: /home/mogu/Documents/competition/src/bin/c.rs /home/mogu/Documents/competition/src/lib.rs
+/h/90/xinyuan/Documents/competitive-programming/target/debug/c: /h/90/xinyuan/Documents/competitive-programming/src/bin/c.rs /h/90/xinyuan/Documents/competitive-programming/src/lib.rs

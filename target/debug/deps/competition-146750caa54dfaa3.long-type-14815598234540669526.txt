@@ -1,1 +1,0 @@
-Box<dyn Iterator<Item = (<G as GraphBase>::NodeId, Option<<G as GraphBase>::NodeId>)>>
